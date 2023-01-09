@@ -185,7 +185,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 16, 10, 10),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -210,47 +211,31 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ],
                                 ),
                               ),
-                              Expanded(
-                                child: SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 180,
-                                          width: 300,
-                                          decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(20),
-                                                topRight: Radius.circular(20)),
-                                            color: Colors.white,
-                                          ),
-                                          child: const Card(
-                                              child: Image(
-                                                  image: AssetImage(
-                                                      'images/ml_tophospitalone.jpg')))),
-                                      Container(
-                                          height: 180,
-                                          width: 300,
-                                          child: const Card(
-                                              child: Image(
-                                                  image: AssetImage(
-                                                      'images/ml_tophospitalone.jpg')))),
-                                      Container(
-                                          height: 180,
-                                          width: 300,
-                                          child: const Card(
-                                              child: Image(
-                                                  image: AssetImage(
-                                                      'images/ml_tophospitalone.jpg')))),
-                                      Container(
-                                          height: 180,
-                                          width: 300,
-                                          child: const Card(
-                                              child: Image(
-                                                  image: AssetImage(
-                                                      'images/ml_tophospitalone.jpg'))))
-                                    ],
-                                  ),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(40),
+                                          topRight: Radius.circular(40)),
+                                      color: Colors.white,
+                                    ),
+                                    height: 180,
+                                    width: 350,
+                                    child:Container(
+                                      height: 180,
+                                      child: ListView(
+                                        scrollDirection: Axis.horizontal,
+                                        children: [
+                                        buildCard(),
+                                        SizedBox(width: 10,),
+                                        buildCard(),
+                                          SizedBox(width: 10,),
+                                        buildCard(),
+                                          SizedBox(width: 10,),
+                                        buildCard(),
+                                      ],),
+                                    )
                                 ),
                               )
                             ],
@@ -259,42 +244,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ]))));
   }
+  Widget buildCard()=> Container(
+    height: 200,
+    width: 200,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children:  const [
+        Image(image: AssetImage('images/ml_tophospitalone.jpg')),
+        Text('Hospital',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),)
+      ],
+    ),
+  );
 }
-
-// Expanded(
-//   child: Container(
-//     decoration: BoxDecoration(
-//         boxShadow: [
-//           BoxShadow(
-//               color: Colors.white.withOpacity(0.3),
-//               spreadRadius: 5,
-//               blurRadius: 5,
-//               offset: const Offset(0, 2))
-//         ],
-//         color: Colors.white,
-//         borderRadius: const BorderRadius.only(
-//             topLeft: Radius.circular(30.0),
-//             topRight: Radius.circular(30.0),
-//             bottomLeft: Radius.circular(10.0),
-//             bottomRight: Radius.circular(10.0))),
-//     height: MediaQuery.of(context).size.height,
-//     width: MediaQuery.of(context).size.width,
-//     child: Padding(
-//       padding: const EdgeInsets.all(15.0),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.start,
-//         children: const [
-//           Align(
-//             alignment: Alignment.topLeft,
-//             child: Text(
-//               'Top Hospital',
-//               style: TextStyle(
-//                   fontSize: 18,
-//                   fontWeight: FontWeight.bold),
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   ),
-// ),
